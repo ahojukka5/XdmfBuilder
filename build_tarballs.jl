@@ -19,9 +19,6 @@ sources = [
 
     "https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.gz" =>
     "96b34f7468f26a141f6020efb813f1a2f3dfb9797ecf76a7d7cbd843cc95f5bd",
-
-	"ftp://xmlsoft.org/libxml2/libxml2-2.9.9.tar.gz" =>
-	"94fb70890143e3c6549f265cee93ec064c80a84c42ad0f23e85ee1fd6540a871",
 ]
 
 # Bash recipe for building across all platforms
@@ -30,12 +27,6 @@ cd $WORKSPACE/srcdir
 
 cd hdf5-1.10.3/
 ./configure --prefix=$prefix --host=$target
-make
-make install
-cd ..
-
-cd libxml2-2.9.9
-./configure --prefix=$prefix --host=$target --without-python
 make
 make install
 cd ..
@@ -64,7 +55,7 @@ products(prefix) = [
 
 # Dependencies that must be installed before this package can be built
 dependencies = [
-    
+	"https://raw.githubusercontent.com/JuliaIO/LightXML.jl/master/deps/build_XML2Builder.v2.9.9.jl"
 ]
 
 # Build the tarballs, and possibly a `build.jl` as well.

@@ -39,4 +39,4 @@ deploy:
     skip_cleanup: true
     on:
         repo: ahojukka5/XdmfBuilder
-        tags: false
+        tags: true
